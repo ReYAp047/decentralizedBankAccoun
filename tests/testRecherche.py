@@ -1,5 +1,5 @@
-from scripts.fund_and_withdrow import fund
-from scripts.helpful_scripts import (
+from scripts.retirer import fund
+from scripts.methodesScript import (
     get_account,
     LOCAL_BLOCKCHAIN_ENVIRONMENTS,
     FORKED_LOCAL_ENVIRONMENTS,

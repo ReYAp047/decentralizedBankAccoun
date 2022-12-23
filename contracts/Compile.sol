@@ -1,10 +1,10 @@
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.6.6;
 import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
 
-contract FundMe {
+contract Compile {
     using SafeMathChainlink for uint256;
 
     AggregatorV3Interface public priceFeed;
@@ -18,12 +18,12 @@ contract FundMe {
         owner = msg.sender;
     }
 
-    //minimum 50$
+    //la valeur minimale = 50$
     function fund() public payable {
         uint256 minimumUsd = 1 * 10**18;
         require(
             getConversionRate(msg.value) >= minimumUsd,
-            "you need to spend more eth"
+            "vous devez dépenser plus d'ethereum"
         );
         addressToAmountFunded[msg.sender] += msg.value;
         funders.push(msg.sender);
@@ -49,7 +49,6 @@ contract FundMe {
     }
 
     function getEntranceFee() public view returns (uint256) {
-        //minimum usd
         uint256 minimumUSD = 1 * 10**18;
         uint256 price = getPrice();
         uint256 precision = 1 * 10**18;

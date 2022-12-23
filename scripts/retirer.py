@@ -1,9 +1,9 @@
-from brownie import FundMe
-from scripts.helpful_scripts import get_account
+from brownie import Compile
+from scripts.methodesScript import get_account
 
 
 def fund():
-    fund_me = FundMe[-1]
+    fund_me = Compile[-1]
     account = get_account()
     entrance_fee = fund_me.getEntranceFee() + 50
     print(entrance_fee)
@@ -13,7 +13,7 @@ def fund():
 
 
 def withdrow():
-    fund_me = FundMe[-1]
+    fund_me = Compile[-1]
     account = get_account()
     fund_me.withdrow({"from": account})
 
